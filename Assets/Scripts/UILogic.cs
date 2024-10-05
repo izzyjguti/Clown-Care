@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class UILogic : MonoBehaviour
 {
-  public void StartGame()
+    public void StartGame()
     {
         SceneManager.LoadSceneAsync("Level");
     }
@@ -34,10 +34,24 @@ public class UILogic : MonoBehaviour
 
     public void BackButton()
     {
-        if(SceneManager.GetActiveScene().name == "Settings")
+        if (SceneManager.GetActiveScene().name == "Settings")
         {
             SceneManager.LoadSceneAsync("Start");
         }
+        if (SceneManager.GetActiveScene().name == "Settings")
+        {
+            SceneManager.LoadSceneAsync("Start");
+        }
+
     }
-    
+
+    public void QuitToMenu()
+    {
+        SceneManager.LoadSceneAsync("Start");
+    }
+
+    public void PauseGame()
+    {
+
+    }
 }

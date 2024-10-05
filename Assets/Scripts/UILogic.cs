@@ -1,18 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 using UnityEngine;
+
 
 public class UILogic : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+  public void StartGame()
     {
-        
+        SceneManager.LoadSceneAsync("Level");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Settings()
     {
-        
+        SceneManager.LoadSceneAsync("Settings");
     }
+
+    public void AudioSlider()
+    {
+
+    }
+
+    public void MuteAudio()
+    {
+
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void BackButton()
+    {
+        if(SceneManager.GetActiveScene().name == "Settings")
+        {
+            SceneManager.LoadSceneAsync("Start");
+        }
+    }
+    
 }

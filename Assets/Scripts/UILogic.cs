@@ -27,42 +27,42 @@ public class UILogic : MonoBehaviour
     public GameObject waterPressureIcon;
     public GameObject melancholyIcon;
 
-    public void Update()
+    public void Update() //every frame checks current level in order to display icons
     {
         LevelChange();
     }
 
-    public void StartGame()
+    public void StartGame() //plays the introduction once the game has been started
     {
        SceneManager.LoadSceneAsync("Intro");
     }
 
-    public void StartLevel()
+    public void StartLevel() //starts the first level after the intro
     {
         SceneManager.LoadSceneAsync("Level");
     }
 
-    public void Settings()
+    public void Settings() //opens settings from the main menu
     {
         SceneManager.LoadSceneAsync("Settings");
     }
 
-    public void AudioSlider()
+    public void AudioSlider() //adjusts game volume
     {
 
     }
 
-    public void MuteAudio()
+    public void MuteAudio() //mutes game 
     {
 
     }
 
-    public void QuitGame()
+    public void QuitGame() //quits game from the pause menu
     {
         Application.Quit();
     }
 
-    public void BackButton()
+    public void BackButton() //returns from the settings to the main menu
     {
         if (SceneManager.GetActiveScene().name == "Settings")
         {
@@ -71,29 +71,29 @@ public class UILogic : MonoBehaviour
 
     }
 
-    public void QuitToMenu()
+    public void QuitToMenu() //quits to the main menu screen
     {
         SceneManager.LoadSceneAsync("Start");
     }
 
-    public void LinkToManual()
+    public void LinkToManual() //link to the manual
     {
         Application.OpenURL("https://docs.google.com/document/d/1YWzMZ1MN0obeqviIon48yFX1O2DJqQxLSIFmgHyzrfQ/edit?usp=sharing");
     }
 
-    public void QuitToDesktop()
+    public void QuitToDesktop() //quits game to desktop
     {
         Application.Quit();
     }
 
-    public void WinGame()
+    public void WinGame() //game finished
     {
         SceneManager.LoadSceneAsync("WinScreen");
     }
 
-    public void Pause()
+    public void Pause() //pause / unpause game
     {
-        if(!paused)
+        if(!paused) //game not paused
         {
             paused = true;
             Time.timeScale = 0;
@@ -101,7 +101,7 @@ public class UILogic : MonoBehaviour
             PauseButton.SetActive(false);
             Debug.Log(paused);
         }
-        else if(paused)
+        else if(paused) //game already paused
         {
             paused = false;
             Time.timeScale = 1;
@@ -111,7 +111,7 @@ public class UILogic : MonoBehaviour
         }
     }
 
-    public void LevelChange()
+    public void LevelChange() //checks level and changes the current icons
     {
         if(SceneManager.GetActiveScene().name == "Level" && currentLevel == 1)
         {
@@ -153,7 +153,7 @@ public class UILogic : MonoBehaviour
         else if(SceneManager.GetActiveScene().name == "Level" && currentLevel == 3)
         {
             Debug.Log("level 3");
-            //remove appendix
+            //remove appendix not in use
             appendixIcon.SetActive(false);
 
             //in use

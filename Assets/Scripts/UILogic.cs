@@ -51,10 +51,6 @@ public class UILogic : MonoBehaviour
         {
             SceneManager.LoadSceneAsync("Start");
         }
-        if (SceneManager.GetActiveScene().name == "Settings")
-        {
-            SceneManager.LoadSceneAsync("Start");
-        }
 
     }
 
@@ -80,17 +76,16 @@ public class UILogic : MonoBehaviour
 
     public void Pause()
     {
-        if (!paused && SceneManager.GetActiveScene().name == "Level")
+        if (!paused)
         {
             paused = true;
             Time.timeScale = 0;
             PauseMenu.SetActive(true);
             PauseButton.SetActive(false);
-            Debug.Log("Pause");
             Debug.Log(paused);
 
         }
-        else if(paused && SceneManager.GetActiveScene().name != "Start")
+        else if(paused)
         {
             paused = false;
             Time.timeScale = 1;
